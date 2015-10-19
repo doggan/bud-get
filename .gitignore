@@ -55,3 +55,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Custom
+tests/data/*_out.csv
