@@ -10,5 +10,9 @@ setup(
     license = 'Unlicense',
     author='Shyam Guthikonda',
 
-    packages = ['bud_get']
+    packages = ['bud_get'],
+    entry_points = """
+    [console_scripts]
+    bud-get = bud_get.cli:main
+    """
 )
