@@ -23,17 +23,19 @@ class TestBudget(unittest.TestCase):
         """ Filter input data. """
         results = bud_get.filter_csv(IN_DATA)
         self.assertIsNotNone(results)
-        self.assertEqual(len(results), 12)
+        self.assertEqual(len(results), 13)
 
         self.assertEqual(results[0]['Trans Date'], '09/24/2015')
         self.assertEqual(results[1]['Trans Date'], '09/24/2015')
         self.assertEqual(results[2]['Trans Date'], '09/24/2015')
         self.assertEqual(results[3]['Trans Date'], '10/12/2015')
+        self.assertEqual(results[len(results) - 1]['Trans Date'], '01/01/2016')
 
         self.assertEqual(results[0]['Amount'], '4.55')
         self.assertEqual(results[1]['Amount'], '11.81')
         self.assertEqual(results[2]['Amount'], '12.19')
         self.assertEqual(results[3]['Amount'], '4.55')
+        self.assertEqual(results[len(results) - 1]['Amount'], '4.00')
 
     def test_write(self):
         """ Filter and write resulting data. """

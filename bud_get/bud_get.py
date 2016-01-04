@@ -31,9 +31,14 @@ def filter_csv(in_file):
 
             results.append(row)
 
-    # Sort by transaction data and amount (ascending).
+    # Sort by transaction date and amount (ascending).
     results = sorted(results, key=lambda x:\
-        (x['Trans Date'], float(x['Amount'])))
+        # Sort by year.
+        (x['Trans Date'][-4:],\
+        # Sort by month/day.
+        x['Trans Date'][:-4],\
+        # Sort by amount.
+        float(x['Amount'])))
 
     return results
 
