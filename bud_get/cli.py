@@ -2,11 +2,15 @@
 """
 import argparse
 import bud_get
+from pkg_resources import get_distribution
 
 def main():
+    VERSION = get_distribution('bud-get').version
+
     parser = argparse.ArgumentParser()
     parser.add_argument("infile", help = "the input data file")
     parser.add_argument("outfile", help = "the output file")
+    parser.add_argument('--version', action='version', version='v%s' % VERSION)
     args = parser.parse_args()
 
     in_path = args.infile
